@@ -1,1 +1,7 @@
-<p>search-page works!</p>
+<div class="row">
+    <div class="col">
+        <input type="text" pInputText [(ngModel)]="summonerName"  class="input"/>
+        <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" [showClear]="true" placeholder="Select a City" class="dropdown"></p-dropdown>
+        <p-button label="Seacrch" class="search-button rounded" (onClick)="onSearchSummoner()"></p-button>
+    </div>
+</div>

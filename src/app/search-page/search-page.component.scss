@@ -1,0 +1,23 @@
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 100vh;
+    background-color: lightblue;
+}
+
+.col{
+    margin-left: 23%;
+}
+
+.input{
+    border-radius: 15px;
+    width: 600px;
+    margin-right: 20px;
+}
+
+.search-button{
+    margin-left: 20px;
+}
+
