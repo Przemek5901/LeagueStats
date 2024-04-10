@@ -1,7 +1,34 @@
 <div class="row">
-    <div class="col">
-        <input type="text" pInputText [(ngModel)]="summonerName"  class="input"/>
-        <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" [showClear]="true" placeholder="Select a City" class="dropdown"></p-dropdown>
-        <p-button label="Seacrch" class="search-button rounded" (onClick)="onSearchSummoner()"></p-button>
+  <div class="col">
+    <div class="title">
+        <h1>League Stats</h1>
+    </div>
+    <input type="text" pInputText [(ngModel)]="summonerName" class="input" />
+    <p-dropdown
+      [options]="regions"
+      [(ngModel)]="selectedRegion"
+      optionLabel="name"
+      [showClear]="true"
+      placeholder="Select a region"
+      class="dropdown"
+    ></p-dropdown>
+    <p-button
+      label="Search"
+      class="search-button rounded"
+      (onClick)="onSearchSummoner()"
+    ></p-button>
+  </div>
+</div>
+
+<div class="card flex flex-column align-items-center overflow-hidden">
+    <div class="flex flex-column align-items-center gap-2">
+        <span class="text-xl font-medium">Scroll Down</span>
+        <span class="slidedown-icon h-2rem w-2rem bg-primary border-circle inline-flex align-items-center justify-content-center">
+            <i class="pi pi-arrow-down"></i>
+        </span>
+    </div>
+    <div class="h-30rem"></div>
+    <div pAnimateOnScroll enterClass="fadein" leaveClass="fadeout" class="flex box shadow-4 justify-content-center align-items-center h-10rem w-10rem sm:h-15rem sm:w-15rem border-round animation-duration-1000">
+       <h1>TEST</h1>
     </div>
 </div>
