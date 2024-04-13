@@ -1,7 +1,7 @@
 .row{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    //display: flex;
+    //align-items: center;
+    //justify-content: center;
     margin: 0 auto;
     height: 100%;
 }
@@ -50,11 +50,16 @@
         animation-iteration-count: infinite;
     }
 
-    .box {
-        background-image: radial-gradient(var(--primary-300), var(--primary-600));
-        border-radius: 50% !important;
-        color: var(--primary-color-text);
-    }
+    // .box {
+    //     background-image: radial-gradient(var(--primary-300), var(--primary-600));
+    //     border-radius: 50% !important;
+    //     color: var(--primary-color-text);
+    // }
+}
+
+.rotation-icon{
+    margin-top: 20rem;
+    color: white;
 }
 
 

@@ -1,0 +1,13 @@
+<div class="flex flex-wrap align-items-center justify-content-center inline w-full pt-5">
+  <ng-container *ngIf="currentRotation | async as championRotation">
+    <div
+      *ngFor="let champion of championRotation"
+      class="m-3 w-3  h-6 p-4 border-round-2xl content"
+    >
+      <h1 class="mb-3 flex flex-wrap align-items-center justify-content-center">{{ champion["name"].toString() }}</h1>
+      <p class="m-1 p-3  flex flex-wrap align-items-center justify-content-center">
+        {{ champion["title"] }}
+      </p>
+    </div>
+  </ng-container>
+</div>
