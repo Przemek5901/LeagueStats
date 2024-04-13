@@ -13,7 +13,7 @@ export class RotationChampionsDataService {
     private http: HttpClient
   ) {}
 
-  getChampionsRotation(): Observable<any> {
+  getChampionsRotation(): Observable<ChampionList[]> {
     return this.rotationKeysService.getRotationKeys().pipe(
       switchMap((keys) => {
         return this.http
@@ -30,4 +30,6 @@ export class RotationChampionsDataService {
       })
     );
   }
+
+  
 }
