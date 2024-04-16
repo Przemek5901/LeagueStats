@@ -1,23 +1,10 @@
 .row{
-    //display: flex;
-    //align-items: center;
-    //justify-content: center;
     margin: 0 auto;
     height: 100%;
 }
 
 .col{
     margin-left: 23%;
-}
-
-.input{
-    border-radius: 15px;
-    width: 600px;
-    margin-right: 20px;
-}
-
-.search-button{
-    margin-left: 20px;
 }
 
 .title{
@@ -50,11 +37,6 @@
         animation-iteration-count: infinite;
     }
 
-    // .box {
-    //     background-image: radial-gradient(var(--primary-300), var(--primary-600));
-    //     border-radius: 50% !important;
-    //     color: var(--primary-color-text);
-    // }
 }
 
 .rotation-icon{

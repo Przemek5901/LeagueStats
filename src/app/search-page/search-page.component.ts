@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputGroupModule } from 'primeng/inputgroup';
@@ -27,7 +27,7 @@ import { Region } from './region.interface';
   templateUrl: './search-page.component.html',
   styleUrl: './search-page.component.scss',
 })
-export class SearchPageComponent implements OnInit {
+export class SearchPageComponent implements OnInit, OnDestroy {
   summonerName: string = '';
   userDataSub: Subscription;
 
@@ -68,5 +68,9 @@ regions: Region[] = [
       .subscribe((userData) => {
         this.router.navigate(['./profile', userData.accountId]);
       });
+  }
+
+  ngOnDestroy(): void {
+    this.userDataSub.unsubscribe();
   }
 }
