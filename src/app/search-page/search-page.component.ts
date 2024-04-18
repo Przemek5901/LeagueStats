@@ -66,7 +66,7 @@ regions: Region[] = [
     this.userDataSub = this.userDataService
       .getUserData(this.summonerName, this.selectedRegion.code)
       .subscribe((userData) => {
-        this.router.navigate(['./profile', userData.accountId]);
+        this.router.navigate(['./profile', userData.puuid]);
       });
   }
 

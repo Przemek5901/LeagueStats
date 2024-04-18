@@ -18,7 +18,7 @@ export class RotationComponent implements OnInit {
 
   currentRotation: Observable<ChampionList[]>;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.currentRotation = this.rotationChampsDataServ.getChampionsRotation();
   }
 }

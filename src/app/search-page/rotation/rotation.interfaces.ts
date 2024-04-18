@@ -1,4 +1,5 @@
 export interface ChampionAbilities {
+    
     id: string;
     key: number;
     name: string;
