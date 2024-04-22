@@ -65,8 +65,8 @@ regions: Region[] = [
     localStorage.setItem('region', JSON.stringify(this.selectedRegion));
     this.userDataSub = this.userDataService
       .getUserData(this.summonerName, this.selectedRegion.code)
-      .subscribe((userData) => {
-        this.router.navigate(['./profile', userData.puuid]);
+      .subscribe(() => {
+        this.router.navigate(['./profile', this.summonerName]);
       });
   }
 

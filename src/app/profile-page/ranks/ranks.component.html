@@ -1,0 +1,43 @@
+<div
+  class="content h-4rem justify-content-center w-full border-round-top-md align-items-center flex"
+>
+  <h2 class="">Ranks</h2>
+</div>
+<div *ngFor="let rank of ranks; let i = index" class="p-2 content -mt-5">
+  <div>
+    <h2 class="mt-4 -mb-3 justify-content-center align-items-center flex">
+      {{ rank.queueType === "RANKED_FLEX_SR" ? "Ranked Flex" : "Ranked Solo" }}
+    </h2>
+  </div>
+  <div class="content grid">
+    <div class="col-4 ml-3">
+      <img
+        src="../../../assets/ranks/emblem-{{
+          rank.tier.toLocaleLowerCase()
+        }}.png"
+        alt=""
+        class="max-w-6rem mt-4"
+      />
+    </div>
+    <div class="col-6">
+      <div class="w-full flex justify-content-end flex-wrap mt-3">
+        <p>{{ rank.tier }} {{ rank.rank }}</p>
+      </div>
+      <div class="w-full flex justify-content-end flex-wrap -mt-3">
+        <h4>{{ rank.leaguePoints }} LP</h4>
+      </div>
+    </div>
+    <div class="col-5 col-offset-1 -mt-3">
+      Wins: {{ rank.wins }} <br />Losess: {{ rank.losses }}
+    </div>
+    <div class="col-5">
+      <p class="-mt-2">
+        Win rate: {{ calculateWinrate(rank.wins, rank.losses) }}%
+      </p>
+    </div>
+    <hr *ngIf="i !== ranks.length - 1" class="w-11rem" />
+  </div>
+</div>
+<div
+  class="content h-1rem border-round-bottom-md align-items-center -mt-2 -mb-5"
+></div>

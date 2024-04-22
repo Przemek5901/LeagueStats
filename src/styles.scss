@@ -5,7 +5,13 @@
 
 /* You can add global styles to this file, and also import other style files */
 body{
-    background-image: url('../src/assets/background.jpg');
+   // background-image: url('../src/assets/background.jpg');
     background-size: cover;
     background-attachment: fixed;
+}
+
+.content{
+    color: white;
+     background-color: var(--primary-color);
+
 }

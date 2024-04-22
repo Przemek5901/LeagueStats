@@ -1,31 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { Observable, filter, map, switchMap, tap } from 'rxjs';
+import { Observable, map, switchMap } from 'rxjs';
 import {
-  ChampionAbilities,
   ChampionList,
   ChampionsData,
 } from '../search-page/rotation/rotation.interfaces';
+import { ChampionData, FavouriteChampion } from '../profile-page/favourite-champions/favourite-champions.interface';
 
-interface ChampionData {
-  puuid: string;
-  championId: number;
-  championLevel: number;
-  championPoints: number;
-  lastPlayTime: number;
-  championPointsSinceLastLevel: number;
-  championPointsUntilNextLevel: number;
-  chestGranted: boolean;
-  tokensEarned: number;
-  summonerId: string;
-}
 
-export interface FavouriteChampion {
-  id: string;
-  name: string;
-  chest: boolean;
-}
 
 @Injectable({
   providedIn: 'root',
@@ -33,10 +16,10 @@ export interface FavouriteChampion {
 export class FavouriteChampionsService {
   constructor(private http: HttpClient) {}
 
-  getFavourtieChampionsKeys(): Observable<ChampionData[]> {
+  getFavourtieChampionsKeys(userPUUiD:string): Observable<ChampionData[]> {
     return this.http
       .get<ChampionData[]>(
-        `https://eun1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/z_4QhWWViJ0Gudj981cXywPvBPyh64UW3n2BxV0ZDOIUKB5mBiYck8I8xYmD5DN4GBcTBeh_PmWubw?api_key=${environment.apiKey}`
+        `https://eun1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/${userPUUiD}?api_key=${environment.apiKey}`
       )
       .pipe(
         map((championDataArray: ChampionData[]) => {
@@ -49,8 +32,8 @@ export class FavouriteChampionsService {
 
 
 
-  getFavouriteChampionsData(): Observable<any[]> {
-    return this.getFavourtieChampionsKeys().pipe(
+  getFavouriteChampionsData(userPUUiD:string): Observable<any[]> {
+    return this.getFavourtieChampionsKeys(userPUUiD).pipe(
       switchMap((championsWithMastery) => {
         return this.http
           .get<ChampionsData>(
