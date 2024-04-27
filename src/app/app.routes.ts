@@ -9,7 +9,7 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'profile/:summonerName',
+    path: 'profile',
     component: ProfilePageComponent,
   },
   {

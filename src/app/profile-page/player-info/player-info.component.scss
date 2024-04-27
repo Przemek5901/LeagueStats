@@ -1,0 +1,30 @@
+.container {
+  height: 140px;
+}
+.bg-image-shadow {
+  box-shadow: inset 0 0 17px 17px var(--primary-color),
+    inset 900px 200px rgba(10, 16, 22, 0.4);
+  background-size: cover;
+  background-position: center;
+  background-position: 0% 20%;
+}
+
+img {
+  border: 2px solid white;
+}
+
+.level-container {
+  border: 1px solid white;
+  width: 41px;
+  height: 28px;
+  border-radius: 15px;
+  background-color: var(--primary-color);
+}
+
+.level-pos {
+  margin-top: 3px;
+}
+.tag-container {
+  margin-top: -1px;
+  color: rgb(201, 198, 198);
+}

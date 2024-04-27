@@ -13,8 +13,8 @@ import { FavouriteChampion } from './favourite-champions.interface';
   styleUrl: './favourite-champions.component.scss',
 })
 export class FavouriteChampionsComponent {
-  favourtieChampions: Observable<FavouriteChampion[]>;
-  userPUUiD: Observable<string> = this.userDataService.currentUserPUUiD;
+  favourtieChampions$: Observable<FavouriteChampion[]>;
+  userPUUiD$: Observable<string> = this.userDataService.currentUserPUUiD;
 
   constructor(
     private favChampionsService: FavouriteChampionsService,
@@ -22,8 +22,8 @@ export class FavouriteChampionsComponent {
   ) {}
 
   ngOnInit(): void {
-    this.userPUUiD.subscribe((userPUUiD) => {
-      this.favourtieChampions =
+    this.userPUUiD$.subscribe((userPUUiD) => {
+      this.favourtieChampions$ =
         this.favChampionsService.getFavouriteChampionsData(userPUUiD);
     });
   }

@@ -11,7 +11,6 @@ import { RotationComponent } from './rotation/rotation.component';
 import { Router } from '@angular/router';
 import { Region } from './region.interface';
 
-
 @Component({
   selector: 'app-search-page',
   standalone: true,
@@ -29,25 +28,14 @@ import { Region } from './region.interface';
 })
 export class SearchPageComponent implements OnInit, OnDestroy {
   summonerName: string = '';
+  tagLine: string = '';
   userDataSub: Subscription;
 
-regions: Region[] = [
-    { name: 'Brasil', code: 'BR1' },
-    { name: 'EUNE', code: 'EUN1' },
-    { name: 'EUW', code: 'EUW1' },
-    { name: 'Japan', code: 'JP1' },
-    { name: 'Korea', code: 'KR' },
-    { name: 'LAN', code: 'LA1' },
-    { name: 'LAS', code: 'LA2' },
-    { name: 'NA', code: 'NA1' },
-    { name: 'Oceania', code: 'OC1' },
-    { name: 'Philippines', code: 'PH2' },
-    { name: 'Russia', code: 'RU' },
-    { name: 'Singapore', code: 'SG2' },
-    { name: 'Thailand', code: 'TH2' },
-    { name: 'Turkey', code: 'TR1' },
-    { name: 'Taiwan', code: 'TW2' },
-    { name: 'Vietnam', code: 'VN2' },
+  regions: Region[] = [
+    { name: 'AMERICAS', code: 'americas' },
+    { name: 'EUROPE', code: 'europe' },
+    { name: 'ASIA', code: 'asia' },
+    { name: 'ESPORTS', code: 'esports' },
   ];
 
   selectedRegion: Region | undefined;
@@ -64,9 +52,15 @@ regions: Region[] = [
   onSearchSummoner(): void {
     localStorage.setItem('region', JSON.stringify(this.selectedRegion));
     this.userDataSub = this.userDataService
-      .getUserData(this.summonerName, this.selectedRegion.code)
+      .getUserData(this.summonerName, this.selectedRegion.code, this.tagLine)
       .subscribe(() => {
-        this.router.navigate(['./profile', this.summonerName]);
+        this.router.navigate(['/profile'], {
+          queryParams: {
+            server: this.selectedRegion.code,
+            name: this.summonerName,
+            tag: this.tagLine,
+          },
+        });
       });
   }
 

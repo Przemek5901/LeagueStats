@@ -16,9 +16,9 @@ import { CommonModule } from '@angular/common';
 export class RotationComponent implements OnInit {
   constructor(private rotationChampsDataServ: RotationChampionsDataService) {}
 
-  currentRotation: Observable<ChampionList[]>;
+  currentRotation$: Observable<ChampionList[]>;
 
   ngOnInit(): void {
-    this.currentRotation = this.rotationChampsDataServ.getChampionsRotation();
+    this.currentRotation$ = this.rotationChampsDataServ.getChampionsRotation();
   }
 }

@@ -13,7 +13,7 @@ import { Rank } from './rank.interface';
   styleUrl: './ranks.component.scss',
 })
 export class RanksComponent {
-  userID: Observable<string> = this.userDataService.currentUserID;
+  user$: Observable<string> = this.userDataService.currentUserID;
   ranks: Rank[];
 
   constructor(
@@ -22,7 +22,7 @@ export class RanksComponent {
   ) {}
 
   ngOnInit(): void {
-    this.userID.subscribe((userID) => {
+    this.user$.subscribe((userID) => {
       this.ranksService.getRanks(userID).subscribe((ranks) => {
         this.ranks = ranks;
       });

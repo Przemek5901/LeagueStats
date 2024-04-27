@@ -1,0 +1,39 @@
+<ng-container *ngIf="userData$ | async as userData">
+  <ng-container *ngIf="favourtieChampions$ | async as champion">
+    <div class="grid container">
+      <div class="col-2 mt-2">
+        <img
+          src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/{{
+            userData.profileIconId
+          }}.jpg"
+          alt=""
+          class="max-w-7rem border-round"
+        />
+
+        <div class="-mt-3 level-container relative ml-6">
+          <p class="level-pos">{{ userData.summonerLevel }}</p>
+        </div>
+      </div>
+      <div
+        class="col-10 bg-image-shadow p-0"
+        [style.background-image]="
+          getBackgroundChampionImage(champion[0].championId)
+        "
+      >
+        <div class="grid mt-2">
+          <div class="col-2 ml-3 flex flex-wrap min-h-100">
+            <h2 class="mt-4">{{ summonerName.toUpperCase() }}</h2>
+            <h3 class="tag-container">#{{ tag.toUpperCase() }}</h3>
+          </div>
+          <div class="col-9 p-0 flex flex-row-reverse flex-wrap ml-3 mt-8">
+            <p-button
+              label="Refresh Data"
+              severity="secondary"
+              class="-mr-2"
+            ></p-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>

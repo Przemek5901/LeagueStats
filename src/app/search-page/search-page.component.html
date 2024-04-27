@@ -1,9 +1,22 @@
-<div class="row">
-  <div class="col">
+<div class="grid">
+  <div class="col-8 col-offset-3 min-h-screen">
     <div class="title">
       <h1>League Stats</h1>
     </div>
-    <input type="text" pInputText [(ngModel)]="summonerName" class="w-5 mx-4" />
+    <input
+      type="text"
+      pInputText
+      [(ngModel)]="summonerName"
+      class="w-4 mr-2"
+      placeholder="Summoner Name"
+    />
+    <input
+      type="text"
+      pInputText
+      [(ngModel)]="tagLine"
+      class="w-1 mx-4"
+      placeholder="Tag"
+    />
     <p-dropdown
       [options]="regions"
       [(ngModel)]="selectedRegion"
@@ -20,7 +33,6 @@
     ></p-button>
   </div>
 </div>
-
 <div class="card flex flex-column align-items-center inline rotation-icon">
   <div class="flex flex-column align-items-center gap-2">
     <span class="text-xl font-medium">Free champion rotation</span>
