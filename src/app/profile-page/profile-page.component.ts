@@ -6,11 +6,17 @@ import { Observable, Subject, takeUntil } from 'rxjs';
 import { RanksComponent } from './ranks/ranks.component';
 import { PlayerInfoComponent } from './player-info/player-info.component';
 import { UserData } from '../search-page/search-page.interface';
+import { MatchHistoryComponent } from './match-history/match-history.component';
 
 @Component({
   selector: 'app-profile-page',
   standalone: true,
-  imports: [FavouriteChampionsComponent, RanksComponent, PlayerInfoComponent],
+  imports: [
+    FavouriteChampionsComponent,
+    RanksComponent,
+    PlayerInfoComponent,
+    MatchHistoryComponent,
+  ],
   templateUrl: './profile-page.component.html',
   styleUrl: './profile-page.component.scss',
 })
