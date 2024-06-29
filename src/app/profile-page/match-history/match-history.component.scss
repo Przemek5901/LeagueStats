@@ -1,0 +1,29 @@
+.match-container-lose {
+  background-color: rgba($color: #e84057, $alpha: 0.4);
+  height: 10rem;
+}
+
+.match-container-win {
+  background-color: rgba($color: #5383e8, $alpha: 0.4);
+  height: 10rem;
+}
+
+.vertical-line {
+  margin-top: 0.5rem;
+  width: 1px;
+  height: 7.5rem;
+  background-color: white;
+  display: inline-block;
+}
+.vertical-line-start {
+  width: 5px;
+  height: 10rem;
+
+  display: inline-block;
+}
+.vertical-line-start-win {
+  background-color: #5383e8;
+}
+.vertical-line-start-lose {
+  background-color: red;
+}

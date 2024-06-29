@@ -1,0 +1,126 @@
+<div class="flex flex-row flex-wrap">
+  <div>
+    <div
+      class="image-container"
+      [style.background-image]="
+        getBackgroundChampionImage(match.searchedPlayer.championName)
+      "
+    ></div>
+  </div>
+
+  <div class="flex flex-wrap mt-1 ml-2">
+    <div class="flex flex-column mr-2">
+      <img class="summoner-image mb-1" [src]="getSummonerSpell(summoner1)" />
+      <img class="summoner-image" [src]="getSummonerSpell(summoner2)" />
+    </div>
+
+    <div class="flex flex-column">
+      <img
+        *ngFor="let style of match.searchedPlayer.perks.styles"
+        class="mb-2"
+        [src]="getStylesImage(style.style)"
+        alt=""
+      />
+    </div>
+    <div class="flex flex-column ml-3 mt-1">
+      <div class="flex flex-wrap -mt-2">
+        <h3>{{ match.searchedPlayer.kills }}</h3>
+        <h3 class="text-500">&nbsp;/&nbsp;</h3>
+        <h3 class="text-red-500">{{ match.searchedPlayer.deaths }}</h3>
+        <h3 class="text-500">&nbsp;/&nbsp;</h3>
+        <h3>{{ match.searchedPlayer.assists }}</h3>
+      </div>
+      <div class="-mt-4">
+        <p>
+          {{
+            calculateKDA(
+              match.searchedPlayer.kills,
+              match.searchedPlayer.deaths,
+              match.searchedPlayer.assists
+            )
+          }}:1 KDA
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <img
+    class="item-image mt-2"
+    [src]="
+      match.searchedPlayer.item0 !== 0
+        ? 'https://cdn.darkintaqt.com/lol/c-assets/items/' +
+          match.searchedPlayer.item0 +
+          '.png.webp'
+        : '../../../assets/item0.png'
+    "
+    alt=""
+  />
+  <img
+    class="item-image"
+    [src]="
+      match.searchedPlayer.item1 !== 0
+        ? 'https://cdn.darkintaqt.com/lol/c-assets/items/' +
+          match.searchedPlayer.item1 +
+          '.png.webp'
+        : '../../../assets/item0.png'
+    "
+    alt=""
+  />
+  <img
+    class="item-image"
+    [src]="
+      match.searchedPlayer.item2 !== 0
+        ? 'https://cdn.darkintaqt.com/lol/c-assets/items/' +
+          match.searchedPlayer.item2 +
+          '.png.webp'
+        : '../../../assets/item0.png'
+    "
+    alt=""
+  />
+  <img
+    class="item-image"
+    [src]="
+      match.searchedPlayer.item3 !== 0
+        ? 'https://cdn.darkintaqt.com/lol/c-assets/items/' +
+          match.searchedPlayer.item3 +
+          '.png.webp'
+        : '../../../assets/item0.png'
+    "
+    alt=""
+  />
+  <img
+    class="item-image"
+    [src]="
+      match.searchedPlayer.item4 !== 0
+        ? 'https://cdn.darkintaqt.com/lol/c-assets/items/' +
+          match.searchedPlayer.item4 +
+          '.png.webp'
+        : '../../../assets/item0.png'
+    "
+    alt=""
+  />
+  <img
+    class="item-image"
+    [src]="
+      match.searchedPlayer.item5 !== 0
+        ? 'https://cdn.darkintaqt.com/lol/c-assets/items/' +
+          match.searchedPlayer.item5 +
+          '.png.webp'
+        : '../../../assets/item0.png'
+    "
+    alt=""
+  />
+  <img
+    class="item-image"
+    [src]="
+      match.searchedPlayer.item6 !== 0
+        ? 'https://cdn.darkintaqt.com/lol/c-assets/items/' +
+          match.searchedPlayer.item6 +
+          '.png.webp'
+        : '../../../assets/item0.png'
+    "
+    alt=""
+  />
+</div>

@@ -1,3 +1,40 @@
-<div class="">
-  <p>match-history works!</p>
-</div>
+<ng-container *ngIf="matchHistory$ | async as matches">
+  <div
+    *ngFor="let match of matches"
+    class="grid match-container border-round-sm mb-3"
+    [ngClass]="{
+      'match-container-win': match.searchedPlayer.win,
+      'match-container-lose': !match.searchedPlayer.win
+    }"
+  >
+    <div class="col-2 -mt-2 flex flex-row flex-wrap">
+      <div
+        class="-ml-2 vertical-line-start"
+        [ngClass]="{
+          'vertical-line-start-win': match.searchedPlayer.win,
+          'vertical-line-start-lose': !match.searchedPlayer.win
+        }"
+      ></div>
+      <div class="ml-3">
+        <p class="font-bold">{{ match.gameMode }}</p>
+        <p class="-mt-2">{{ match.gameDaysAgo }} dni temu</p>
+        <hr />
+        <p class="font-bold -mb-2">{{ match.searchedPlayerWon }}</p>
+        <p>{{ match.gameTime }}</p>
+      </div>
+    </div>
+    <div class="col-4 -ml-4">
+      <app-player-match-result [match]="match"></app-player-match-result>
+    </div>
+    <div class="col-2 flex flex-row flex-wrap">
+      <div class="vertical-line -ml-2"></div>
+      <app-player-match-stats
+        [match]="match"
+        class="ml-2"
+      ></app-player-match-stats>
+    </div>
+    <div class="col-4 max-h-11rem ml-2" style="white-space: nowrap">
+      <app-players-table [match]="match"></app-players-table>
+    </div>
+  </div>
+</ng-container>

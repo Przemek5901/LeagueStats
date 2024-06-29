@@ -1,0 +1,33 @@
+<div class="grid text-overflow-ellipsis">
+  <div class="col-6">
+    <div
+      *ngFor="let innerPlayer of match.players.slice(0, 5); let i = index"
+      class="text-overflow-ellipsis overflow-hidden"
+    >
+      <img
+        src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/champion/{{
+          match.champions[i]
+        }}.png"
+        class="photo-size mb-1 vertical-align-text-top"
+        alt=""
+      />
+      <span class="players-font"> {{ innerPlayer }}</span>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div
+      *ngFor="let innerPlayer of match.players.slice(5, 10); let i = index"
+      class="text-overflow-ellipsis overflow-hidden"
+    >
+      <img
+        src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/champion/{{
+          match.champions[i + 5]
+        }}.png"
+        class="photo-size vertical-align-text-top mb-1"
+        alt=""
+      />
+      <span class="test"> {{ innerPlayer }}</span>
+    </div>
+  </div>
+</div>

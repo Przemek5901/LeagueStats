@@ -1,0 +1,16 @@
+<div class="flex flex-column ml-3">
+  <div class="flex align-items-center justify-content-center -mt-2">
+    <p>Wards {{ match.searchedPlayer.wardsPlaced }}</p>
+  </div>
+  <div class="flex align-items-center justify-content-center margin-container">
+    <p>CS {{ match.searchedPlayer.totalMinionsKilled }}</p>
+  </div>
+  <div class="flex align-items-center justify-content-center margin-container">
+    <p>{{ match.searchedPlayer.visionScore }} vision</p>
+  </div>
+  <div
+    class="flex align-items-center justify-content-center multikill-container -mt-1 multikill-container"
+  >
+    <p>{{ getMultipleKills() }}</p>
+  </div>
+</div>

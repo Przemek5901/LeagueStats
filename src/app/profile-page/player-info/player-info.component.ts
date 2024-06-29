@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserData } from '../../search-page/search-page.interface';
 import { UserDataService } from '../../services/user-data.service';
@@ -6,10 +6,7 @@ import { Observable, Subject, take, takeUntil } from 'rxjs';
 import { ButtonModule } from 'primeng/button';
 import { ActivatedRoute } from '@angular/router';
 import { FavouriteChampionsService } from '../../services/favourite-champions.service';
-import {
-  ChampionData,
-  FavouriteChampion,
-} from '../favourite-champions/favourite-champions.interface';
+import { ChampionData } from '../favourite-champions/favourite-champions.interface';
 
 @Component({
   selector: 'app-player-info',
@@ -48,7 +45,7 @@ export class PlayerInfoComponent implements OnInit, OnDestroy {
   }
 
   getBackgroundChampionImage(championId): string {
-    return `url(https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-splashes/${championId}/${championId}000.jpg`;
+    return `url(https://cdn.communitydragon.org/latest/champion/${championId}/splash-art/centered/skin/0`;
   }
 
   ngOnDestroy(): void {
